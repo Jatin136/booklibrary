@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Local Library Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css"> -->
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <ul class="sidebar-nav">
+                    <li> <a [routerLink]= "['/catalog']">Home</a></li>
+                    <li> <a [routerLink]= "['/catalog/books']">All books</a></li>
+                    <li> <a [routerLink]= "['/catalog/authors']">All authors</a></li>
+                    <li> <a [routerLink]= "['/catalog/genres']">All genres</a></li>
+                    <li> <a [routerLink]= "['/catalog/bookinstances']">All book-instances</a></li>
+                    <li>
+                        <hr>
+                    </li>
+                    <li> <a [routerLink]="['/catalog/author/create']">Create new author</a></li>
+                    <li> <a [routerLink]="['/catalog/genre/create']">Create new genre</a></li>
+                    <li> <a [routerLink]="['/catalog/book/create']">Create new book</a></li>
+                    <li> <a [routerLink]="['/catalog/bookinstance/create']">Create new book instance (copy)</a></li>
+                </ul>
+            </div>
+            <router-outlet></router-outlet>
+            <!-- <app-book></app-book> -->
+        </div>
+    </div>
+</body>
+
+</html>

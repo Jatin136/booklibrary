@@ -1,0 +1,8 @@
+<div class="col-sm-10">
+  <h1>Author List</h1>
+  <ul *ngIf="genres">
+    <li *ngFor="let item of genres.list_genres" >
+      <app-genreitem [genre]="item"></app-genreitem>
+    </li>
+  </ul>
+</div>

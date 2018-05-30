@@ -1,0 +1,35 @@
+<div class="col-sm-10">
+    <h1>Create BookInstance</h1>
+    <form method="POST" action="">
+        <div class="form-group">
+            <label for="book">Book:</label>
+            <select class="form-control" id="book" type="select" placeholder="Select book" name="book" required="true">
+                <option value="5b02713f445661a2fcd60731">The Name of the Wind (The Kingkiller Chronicle, #1)</option>
+                <option value="5b02713f445661a2fcd60734">Apes and Angels</option>
+                <option value="5b02713f445661a2fcd60732">The Wise Man's Fear (The Kingkiller Chronicle, #2)</option>
+                <option value="5b02713f445661a2fcd60733">The Slow Regard of Silent Things (Kingkiller Chronicle)</option>
+                <option value="5b02713f445661a2fcd60735">Death Wave</option>
+                <option value="5b02713f445661a2fcd60736">Test Book 1</option>
+                <option value="5b02713f445661a2fcd60737">Test Book 2</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="imprint">Imprint:</label>
+            <input class="form-control" id="imprint" type="text" placeholder="Publisher and date information" name="imprint" required="true" value="">
+        </div>
+        <div class="form-group">
+            <label for="due_back">Date when book available:</label>
+            <input class="form-control" id="due_back" type="date" name="due_back" value="">
+        </div>
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select class="form-control" id="status" type="select" placeholder="Select status" name="status" required="true">
+                <option value="Maintenance">Maintenance</option>
+                <option value="Available">Available</option>
+                <option value="Loaned">Loaned</option>
+                <option value="Reserved">Reserved</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>

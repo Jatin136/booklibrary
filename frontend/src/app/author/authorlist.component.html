@@ -1,0 +1,8 @@
+<div class="col-sm-10">
+  <h1>Author List</h1>
+  <ul *ngIf="authorList">
+    <li *ngFor="let item of authorList.author_list" >
+      <app-authoritem [author]="item"></app-authoritem>
+    </li>
+  </ul>
+</div>

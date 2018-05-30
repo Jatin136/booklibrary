@@ -1,0 +1,24 @@
+<!-- <div class="col-sm-10">
+  <h1>Book Instance List</h1>
+  <ul></ul>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd60738">The Wise Man's Fear (The Kingkiller Chronicle, #2) : London Gollancz, 2014. - </a><span class="text-success">Available</span></li>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd60739">Apes and Angels :  Gollancz, 2011. - </a><span class="text-warning">Loaned </span><span> (Due: May 21st, 2018 )</span></li>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd6073a">The Slow Regard of Silent Things (Kingkiller Chronicle) :  Gollancz, 2015. - </a><span class="text-danger">Maintenance</span><span> (Due: May 21st, 2018 )</span></li>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd6073b">The Name of the Wind (The Kingkiller Chronicle, #1) : New York Tom Doherty Associates, 2016. - </a><span class="text-success">Available</span></li>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd6073f">Death Wave : New York, NY Tom Doherty Associates, LLC, 2015. - </a><span class="text-danger">Maintenance</span><span> (Due: May 21st, 2018 )</span></li>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd6073c">The Name of the Wind (The Kingkiller Chronicle, #1) : New York Tom Doherty Associates, 2016. - </a><span class="text-success">Available</span></li>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd6073d">The Name of the Wind (The Kingkiller Chronicle, #1) : New York Tom Doherty Associates, 2016. - </a><span class="text-success">Available</span></li>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd60740">Death Wave : New York, NY Tom Doherty Associates, LLC, 2015. - </a><span class="text-warning">Loaned </span><span> (Due: May 21st, 2018 )</span></li>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd60741">The Wise Man's Fear (The Kingkiller Chronicle, #2) : Imprint XXX2 - </a><span class="text-danger">Maintenance</span><span> (Due: May 21st, 2018 )</span></li>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd6073e">Death Wave : New York, NY Tom Doherty Associates, LLC, 2015. - </a><span class="text-success">Available</span></li>
+  <li> <a href="/catalog/bookinstance/5b027140445661a2fcd60742">Apes and Angels : Imprint XXX3 - </a><span class="text-danger">Maintenance</span><span> (Due: May 21st, 2018 )</span></li>
+</div> -->
+
+<div class="col-sm-10">
+  <h1>Book Instance List</h1>
+  <ul *ngIf="bookinstances">
+    <li *ngFor="let item of bookinstances.bookinstance_list" >
+      <app-bookinstanceitem [bookinstance]="item"></app-bookinstanceitem>
+    </li>
+  </ul>
+</div>
