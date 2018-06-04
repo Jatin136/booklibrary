@@ -1,0 +1,15 @@
+<div class="col-sm-10" *ngIf='authorDetail'>
+    <h1>Author: {{authorDetail.author.family_name}}, {{authorDetail.author.first_name}}</h1>
+    <p>{{authorDetail.author.date_of_birth}} - {{authorDetail.author.date_of_death}}</p>
+    <div style="margin-left:20px;margin-top:20px;">
+       <h4>Books</h4>
+       <dl></dl>
+       <span *ngFor='let item of authorDetail.author_books'>
+        <dt> <a href="/catalog/book/{{item._id}}">{{item.title}}</a></dt>
+        <dd>{{item.summary}}</dd>
+       </span>
+    </div>
+    <hr>
+    <p><a href="/catalog/author/{{authorDetail.author._id}}/delete">Delete author</a></p>
+    <p><a href="/catalog/author/{{authorDetail.author._id}}/update">Update author</a></p>
+ </div>

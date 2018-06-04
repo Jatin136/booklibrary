@@ -13,4 +13,9 @@ export class AuthorService {
   public getAuthorList() {
     return this.http.get(this.url + 'authors');
   }
+
+  public getAuthorDetail(id: string) {
+    console.log('came in getAuthorDetail');
+    return this.http.get(this.url + 'author/' + id);
+  }
 }

@@ -1,25 +1,28 @@
 <div class="col-sm-10" *ngIf='data'>
-    <h1>Title: The Name of the Wind (The Kingkiller Chronicle, #1)</h1>
-    <p><strong>Author:</strong> <a href="/catalog/author/{{data.book.author._id}}">{{data.book.author.family_name}}, {{data.book.author.first_name}}</a></p>
-    <p><strong>Summary:</strong> I have stolen princesses back from sleeping barrow kings. I burned down the town of Trebon. I have spent the night with Felurian and left with both my sanity and my life. I was expelled from the University at a younger age than most people are allowed in. I tread paths by moonlight that others fear to speak of during day. I have talked to Gods, loved women, and written songs that make the minstrels weep.</p>
-    <p><strong>ISBN:</strong> 9781473211896</p>
-    <p><strong>Genre:</strong> <a href="/catalog/genre/{{data.book.genre[0]._id}}">{{data.book.genre[0].name}}</a>, </p>
+    <h1> Title: {{ data.book.title }}</h1>
+    <p><strong>Author:</strong> <a href="/catalog/author/{{data.book.author._id}}"> {{data.book.author.family_name}}, {{data.book.author.first_name}}</a></p>
+    <p><strong>Summary:</strong> {{data.book.summary}}</p>
+    <p><strong>ISBN:</strong> {{data.book.isbn}}</p>
+    <p>
+      <strong>Genre:</strong> <span *ngFor='let item of data.book.genre'><a href="/catalog/genre/{{item._id}}"> {{item.name}}</a>, </span>
+    </p>
     <div style="margin-left:20px;margin-top:20px;">
         <h4>Copies</h4>
+        <span *ngIf='data.book_instances.length == 0'>
+            There are no copies of this book in the library.
+        </span>
         <hr>
-        <p class="text-success">Available</p>
-        <p><strong>Imprint:</strong> New York Tom Doherty Associates, 2016.</p>
-        <p><strong>Id:</strong> <a href="/catalog/bookinstance/5b027140445661a2fcd6073b">5b027140445661a2fcd6073b</a></p>
-        <hr>
-        <p class="text-success">Available</p>
-        <p><strong>Imprint:</strong> New York Tom Doherty Associates, 2016.</p>
-        <p><strong>Id:</strong> <a href="/catalog/bookinstance/5b027140445661a2fcd6073c">5b027140445661a2fcd6073c</a></p>
-        <hr>
-        <p class="text-success">Available</p>
-        <p><strong>Imprint:</strong> New York Tom Doherty Associates, 2016.</p>
-        <p><strong>Id:</strong> <a href="/catalog/bookinstance/5b027140445661a2fcd6073d">5b027140445661a2fcd6073d</a></p>
+        <span *ngFor="let item of data.book_instances">
+            <p *ngIf='item.status == "Available"' class="text-success">{{item.status}}</p>
+            <p *ngIf='item.status == "Maintenance"' class="text-danger">{{item.status}}</p>
+            <p *ngIf='item.status == "Loaned"' class="text-warning">{{item.status}}</p>
+            <p><strong>Imprint:</strong> {{item.imprint}}</p>
+            <p *ngIf='item.status != "Available" '><strong>Due back:</strong> {{item.due_back}}</p>
+            <p><strong>Id:</strong> <a href="/catalog/bookinstance/{{item._id}}"> {{item._id}}</a></p>
+            <hr>
+        </span>
     </div>
     <hr>
-    <p><a href="/catalog/book/5b02713f445661a2fcd60731/delete">Delete Book</a></p>
-    <p><a href="/catalog/book/5b02713f445661a2fcd60731/update">Update Book</a></p>
+    <p><a href="/catalog/book/{{data.book._id}}/delete">Delete Book</a></p>
+    <p><a href="/catalog/book/{{data.book._id}}/update">Update Book</a></p>
 </div>
