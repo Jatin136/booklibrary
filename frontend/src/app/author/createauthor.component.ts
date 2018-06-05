@@ -12,4 +12,8 @@ export class CreateauthorComponent implements OnInit {
   ngOnInit() {
   }
 
+  CreateAuthor() {
+    console.log('form submitted successfuly');
+  }
+
 }

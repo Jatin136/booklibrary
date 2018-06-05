@@ -10,6 +10,15 @@ export class GenreService {
   constructor(private http: HttpClient) { }
 
   public getGenreList() {
+    console.log('came in getGenreList');
     return this.http.get(this.url + 'genres');
+  }
+
+  /**
+   * getGenreDetail
+   */
+  public getGenreDetail(id: string) {
+    console.log('came in getGenreDetail');
+    return this.http.get(this.url + 'genre/' + id);
   }
 }

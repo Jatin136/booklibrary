@@ -1,0 +1,23 @@
+<div class="col-sm-10" *ngIf='genreDetails'>
+  <h1>Genre: {{genreDetails.genre.name}}</h1>
+  <div style="margin-left:20px;margin-top:20px;">
+    <h4>Books</h4>
+    <span *ngIf='genreDetails.genre_books.length == 0'>
+      This genre has no books.
+    </span>
+    <dl></dl>
+    <span *ngFor="let item of genreDetails.genre_books">
+    <dt>
+      <a href="/catalog/book/{{item._id}}">{{item.title}}</a>
+    </dt>
+    <dd>{{item.summary}}</dd>
+    </span>
+  </div>
+  <hr>
+  <p>
+    <a href="/catalog/genre/{{genreDetails.genre._id}}/delete">Delete genre</a>
+  </p>
+  <p>
+    <a href="/catalog/genre/{{genreDetails.genre._id}}/update">Update genre</a>
+  </p>
+</div>

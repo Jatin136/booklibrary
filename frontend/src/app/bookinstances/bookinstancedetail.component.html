@@ -1,0 +1,24 @@
+<div class="col-sm-10" *ngIf='bookinstancedetail'>
+  <h1>ID: {{bookinstancedetail.bookinstance._id}}</h1>
+  <p>
+    <strong>Title:</strong>
+    <a href="/catalog/book/{{bookinstancedetail.bookinstance.book._id}}"> {{bookinstancedetail.bookinstance.book.title}}</a>
+  </p>
+  <p>
+    <strong>Imprint:</strong> {{bookinstancedetail.bookinstance.imprint}}</p>
+  <p>
+    <strong>Status:</strong>
+    <span *ngIf='bookinstancedetail.bookinstance.status == "Available"' class="text-success"> {{bookinstancedetail.bookinstance.status}}</span>
+    <span *ngIf='bookinstancedetail.bookinstance.status == "Maintenance"' class="text-danger"> {{bookinstancedetail.bookinstance.status}}</span>
+    <span *ngIf='bookinstancedetail.bookinstance.status == "Loaned"' class="text-warning"> {{bookinstancedetail.bookinstance.status}}</span>
+  </p>
+  <p *ngIf='bookinstancedetail.bookinstance.status != "Available" '>
+    <strong>Due back:</strong> {{bookinstancedetail.bookinstance.due_back | date}}</p>
+  <hr>
+  <p>
+    <a href="/catalog/bookinstance/{{bookinstancedetail.bookinstance._id}}/delete">Delete BookInstance</a>
+  </p>
+  <p>
+    <a href="/catalog/bookinstance/{{bookinstancedetail.bookinstance._id}}/update">Update BookInstance</a>
+  </p>
+</div>

@@ -18,4 +18,9 @@ export class BookinstanceService {
     return this.http.get(this.url + 'bookinstances');
   }
 
+  public getBookInstanceDetail(id: string) {
+    console.log('came in getBookInstanceDetail');
+    return this.http.get(this.url + '/bookinstance/' + id);
+  }
+
 }

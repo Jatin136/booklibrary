@@ -20,6 +20,8 @@ import { CreategenreComponent } from './genre/creategenre.component';
 import { CreatebookComponent } from './book/createbook.component';
 import { CreatebookinstanceComponent } from './bookinstances/createbookinstance.component';
 import { AuthordetailComponent } from './author/authordetail.component';
+import { GenredetailComponent } from './genre/genredetail.component';
+import { BookinstancedetailComponent } from './bookinstances/bookinstancedetail.component';
 
 const appRoutes: Routes = [
   { path: '', component: BookComponent},
@@ -29,12 +31,13 @@ const appRoutes: Routes = [
   { path: 'catalog/genres', component: GenrelistComponent },
   { path: 'catalog/bookinstances', component: BookinstancesComponent },
   { path: 'catalog/bookinstance/create', component: CreatebookinstanceComponent },
+  { path: 'catalog/bookinstance/:id', component: BookinstancedetailComponent },
   { path: 'catalog/book/create', component: CreatebookComponent },
   { path: 'catalog/book/:id', component: BookdetailComponent },
   { path: 'catalog/author/create', component: CreateauthorComponent },
   { path: 'catalog/author/:id', component: AuthordetailComponent },
   { path: 'catalog/genre/create', component: CreategenreComponent },
-
+  { path: 'catalog/genre/:id', component: GenredetailComponent }
 ];
 
 @NgModule({
@@ -54,7 +57,9 @@ const appRoutes: Routes = [
     CreategenreComponent,
     CreatebookComponent,
     CreatebookinstanceComponent,
-    AuthordetailComponent
+    AuthordetailComponent,
+    GenredetailComponent,
+    BookinstancedetailComponent
   ],
   imports: [
     BrowserModule,

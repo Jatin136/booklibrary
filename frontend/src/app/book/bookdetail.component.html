@@ -17,7 +17,7 @@
             <p *ngIf='item.status == "Maintenance"' class="text-danger">{{item.status}}</p>
             <p *ngIf='item.status == "Loaned"' class="text-warning">{{item.status}}</p>
             <p><strong>Imprint:</strong> {{item.imprint}}</p>
-            <p *ngIf='item.status != "Available" '><strong>Due back:</strong> {{item.due_back}}</p>
+            <p *ngIf='item.status != "Available" '><strong>Due back:</strong> {{item.due_back | date}}</p>
             <p><strong>Id:</strong> <a href="/catalog/bookinstance/{{item._id}}"> {{item._id}}</a></p>
             <hr>
         </span>
