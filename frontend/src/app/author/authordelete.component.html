@@ -1,0 +1,11 @@
+<div class="col-sm-10" *ngIf='authorDetail'>
+  <h1>{{authorDetail.title}}: {{authorDetail.author.family_name}}, {{authorDetail.author.first_name}}</h1>
+  <p> - </p>
+  <p>Do you really want to delete this Author?</p>
+  <form method="POST" action="" novalidate>
+      <!-- <div class="form-group">
+          <input class="form-control" id="authorid" type="hidden" name="authorid" required="true" value="{{authorDetail.author._id}}">
+      </div> -->
+      <button class="btn btn-primary" type="submit" (click)='DeleteAuthor()'>Delete</button>
+  </form>
+</div>

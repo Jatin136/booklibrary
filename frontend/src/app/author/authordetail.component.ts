@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthorService } from './author.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Author } from '../models/author';
 
 @Component({
   selector: 'app-authordetail',
@@ -10,7 +11,7 @@ export class AuthordetailComponent implements OnInit {
 
   authorDetail: any;
 
-  constructor(private author: AuthorService, private route: ActivatedRoute) { }
+  constructor(private author: AuthorService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
@@ -24,5 +25,9 @@ export class AuthordetailComponent implements OnInit {
         () => console.log('completed fetching author detail ' + JSON.stringify(this.authorDetail)));
       }
     );
+  }
+
+  NavigateToDelete(author: Author) {
+    this.router.navigate([`/catalog/author/{{author._id}}/delete`]);
   }
 }

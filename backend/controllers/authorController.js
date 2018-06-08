@@ -91,9 +91,9 @@ exports.author_create_post = [
                     date_of_death: req.body.date_of_death
                 });
             author.save(function (err) {
-                if (err) { return next(err); }
+                if (err) { res.send(err); }                
                 // Successful - redirect to new author record.
-                res.redirect(author.url);
+                res.json(author);
             });
         }
     }
@@ -112,9 +112,12 @@ exports.author_delete_get = function (req, res, next) {
             Book.find({ 'author': req.params.id }).exec(callback)
         },
     }, function (err, results) {
-        if (err) { return next(err); }
+        if (err) { console.log('err' + err); next(new Error({'message': 'No Author found'})); return; }
+        
         if (results.author == null) { // No results.
-            res.redirect('/catalog/authors');
+            console.log('author mai mila');
+            res.status(500).send({'message': 'No Author found'});
+            return;
         }
         // Successful, so render.
         // res.render('author_delete', { title: 'Delete Author', author: results.author, author_books: results.authors_books });
@@ -147,7 +150,7 @@ exports.author_delete_post = function (req, res, next) {
             Author.findByIdAndRemove(req.body.authorid, function deleteAuthor(err) {
                 if (err) { return next(err); }
                 // Success - go to author list.
-                res.redirect('/catalog/authors')
+                res.json('/catalog/authors')
             })
 
         }

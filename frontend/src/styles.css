@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}

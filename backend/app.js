@@ -32,11 +32,6 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
-// View engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
 // Uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -60,6 +55,7 @@ app.use(function(req, res, next) {
 });
 
 // Error handler
+// This needs to be the last as its global=t error handler
 app.use(function(err, req, res, next) {
   // Set locals, only providing error in development
   res.locals.message = err.message;
@@ -67,7 +63,8 @@ app.use(function(err, req, res, next) {
 
   // Render the error page
   res.status(err.status || 500);
-  res.render('error');
+  console.log('idar aua');
+  res.send(err);
 });
 
 module.exports = app;
