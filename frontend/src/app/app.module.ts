@@ -23,6 +23,7 @@ import { AuthordetailComponent } from './author/authordetail.component';
 import { GenredetailComponent } from './genre/genredetail.component';
 import { BookinstancedetailComponent } from './bookinstances/bookinstancedetail.component';
 import { AuthordeleteComponent } from './author/authordelete.component';
+import { AuthorupdateComponent } from './author/authorupdate.component';
 
 const appRoutes: Routes = [
   { path: '', component: BookComponent},
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   { path: 'catalog/author/create', component: CreateauthorComponent },
   { path: 'catalog/author/:id', component: AuthordetailComponent },
   { path: 'catalog/author/:id/delete', component: AuthordeleteComponent },
+  { path: 'catalog/author/:id/update', component: AuthorupdateComponent },
   { path: 'catalog/genre/create', component: CreategenreComponent },
   { path: 'catalog/genre/:id', component: GenredetailComponent }
 ];
@@ -62,7 +64,8 @@ const appRoutes: Routes = [
     AuthordetailComponent,
     GenredetailComponent,
     BookinstancedetailComponent,
-    AuthordeleteComponent
+    AuthordeleteComponent,
+    AuthorupdateComponent
   ],
   imports: [
     BrowserModule,

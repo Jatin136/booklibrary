@@ -28,6 +28,14 @@ export class AuthordetailComponent implements OnInit {
   }
 
   NavigateToDelete(author: Author) {
-    this.router.navigate([`/catalog/author/{{author._id}}/delete`]);
+    const id = this.route.snapshot.params['id'];
+    console.log(id);
+    this.router.navigate([`/catalog/author/${id}/delete`]);
+  }
+
+  NavigateToUpdate(authorDetail: Author) {
+    const id = this.route.snapshot.params['id'];
+    console.log(id);
+    this.router.navigate([`/catalog/author/${id}/update/`]);
   }
 }

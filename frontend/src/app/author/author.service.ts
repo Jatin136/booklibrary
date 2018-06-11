@@ -58,6 +58,14 @@ export class AuthorService {
     return this.http.post(url, body, httpOptions).pipe(catchError(this.handleError));
   }
 
+  public updateAuthorGet(id: string) {
+    console.log('came in updateAuthorGet');
+
+    const url = this.url + 'author/' + id + '/update';
+    return this.http.get(url).pipe(catchError(this.handleError));
+
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

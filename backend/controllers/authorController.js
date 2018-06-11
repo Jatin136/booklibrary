@@ -220,7 +220,7 @@ exports.author_update_post = [
             Author.findByIdAndUpdate(req.params.id, author, {}, function (err, theauthor) {
                 if (err) { return next(err); }
                 // Successful - redirect to genre detail page.
-                res.redirect(theauthor.url);
+                res.json(theauthor.url);
             });
         }
     }

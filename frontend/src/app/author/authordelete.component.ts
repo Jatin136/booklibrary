@@ -33,7 +33,16 @@ export class AuthordeleteComponent implements OnInit {
       this.authorDetail = result;
     },
     error => {console.log(error); this.router.navigate([`/catalog/authors`]); },
-    () => { console.log('completed fetching author detail ' + JSON.stringify(this.authorDetail))), this.router.navigate([`/catalog/authors`]); }
+    () => { console.log('completed fetching author detail ' + JSON.stringify(this.authorDetail)), this.router.navigate([`/catalog/authors`]); });
   }
 
+  Cancel() {
+    this.route.paramMap.subscribe(
+      (params: ParamMap) => {
+        const id = params.get('id');
+        console.log(id);
+        this.router.navigate([`/catalog/author/${id}`]);
+      }
+    )
+  }
 }

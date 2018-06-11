@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthorService } from './author.service';
 import { Author } from '../models/author';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createauthor',
@@ -18,7 +19,7 @@ export class CreateauthorComponent implements OnInit {
   //   date_of_death: new FormControl()
   // });
 
-  constructor(private fb: FormBuilder, private author: AuthorService) {
+  constructor(private fb: FormBuilder, private author: AuthorService, private router: Router) {
     this.createForm();
   }
 
@@ -47,7 +48,7 @@ export class CreateauthorComponent implements OnInit {
       console.log(data);
     },
     error => console.log(error),
-    () => console.log('author created successfully')
+    () => { console.log('author created successfully'), this.router.navigate([`/catalog/authors`]); }
     );
   }
 

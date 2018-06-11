@@ -1,0 +1,21 @@
+<div class="col-sm-10" *ngIf='authorDetail'>
+  <h1>{{authorDetail.title }} </h1>
+  <form method="POST" action="" [formGroup]="authorForm" novalidate>
+      <div class="form-group">
+          <label for="first_name">First Name:</label>
+          <input class="form-control" formControlName='first_name' id="first_name" type="text" placeholder="First name (Christian) last" name="first_name" value={{authorDetail.author.first_name}}>
+          <label for="family_name">Family Name:</label>
+          <input class="form-control" formControlName='family_name' id="family_name" type="text" placeholder="Family name (surname)" name="family_name" value={{authorDetail.author.first_name}}>
+      </div>
+      <div class="form-group">
+          <label for="date_of_birth">Date of birth:</label>
+          <input class="form-control" formControlName='date_of_birth' id="date_of_birth" type="date" name="date_of_birth" [value]='authorDetail.author.date_of_birth | date: "yyyy-MM-dd"'>
+      </div>
+      <div class="form-group">
+          <label for="date_of_death">Date of death:</label>
+          <input class="form-control" formControlName='date_of_death' id="date_of_death" type="date" name="date_of_death" [value]='authorDetail.author.date_of_death | date: "yyyy-MM-dd"'>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+  <p>{{authorDetail | json}} {{authorDetail.author.date_of_birth | date: "MM/dd/yyyy"}}</p>
+</div>
