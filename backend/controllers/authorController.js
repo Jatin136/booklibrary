@@ -208,8 +208,10 @@ exports.author_update_post = [
                 _id: req.params.id
             }
         );
+        console.log(author);
 
         if (!errors.isEmpty()) {
+            console.error(JSON.parse(errors));
             // There are errors. Render the form again with sanitized values and error messages.
             // res.render('author_form', { title: 'Update Author', author: author, errors: errors.array() });
             res.json({ title: 'Update Author', author: author, errors: errors.array() });

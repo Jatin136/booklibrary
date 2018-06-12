@@ -66,6 +66,22 @@ export class AuthorService {
 
   }
 
+  public updateAuthorPost(author: Author) {
+    console.log('came in updateAuthorPost');
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    const body = JSON.stringify(author);
+    const url = this.url + 'author/' + author.id + '/update';
+    console.log('came in updateAuthorPost' + body);
+
+    return this.http.post(url, body, httpOptions);
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
