@@ -35,6 +35,11 @@ export class BookService {
     return this.http.get(url).pipe(catchError(this.handleError));
   }
 
+  public bookCreateGet() {
+    console.log('came in bookCreateGet');
+    return this.http.get(this.url + 'book/create');
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

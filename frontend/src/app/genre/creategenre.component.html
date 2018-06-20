@@ -1,10 +1,10 @@
 <div class="col-sm-10">
     <h1>Create Genre</h1>
-    <form method="POST" action="">
+    <form method="POST" action="" novalidate [formGroup]='genreForm'>
         <div class="form-group">
             <label for="name">Genre:</label>
-            <input class="form-control" id="name" type="text" placeholder="Fantasy, Poetry etc." name="name" required="true" value="">
+            <input class="form-control" formControlName='name' id="name" type="text" placeholder="Fantasy, Poetry etc." name="name" required="true" value="">
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit" (click)='CreateGenre()'>Submit</button>
     </form>
 </div>

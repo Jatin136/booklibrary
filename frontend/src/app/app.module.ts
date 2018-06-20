@@ -25,6 +25,7 @@ import { BookinstancedetailComponent } from './bookinstances/bookinstancedetail.
 import { AuthordeleteComponent } from './author/authordelete.component';
 import { AuthorupdateComponent } from './author/authorupdate.component';
 import { BookdeleteComponent } from './book/bookdelete.component';
+import { GenredeleteComponent } from './genre/genredelete.component';
 
 const appRoutes: Routes = [
   { path: '', component: BookComponent},
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'catalog/books', component: BooklistComponent },
   { path: 'catalog/authors', component: AuthorlistComponent },
   { path: 'catalog/genres', component: GenrelistComponent },
+  { path: 'catalog/genre/:id/delete', component: GenredeleteComponent },
   { path: 'catalog/bookinstances', component: BookinstancesComponent },
   { path: 'catalog/bookinstance/create', component: CreatebookinstanceComponent },
   { path: 'catalog/bookinstance/:id', component: BookinstancedetailComponent },
@@ -68,7 +70,8 @@ const appRoutes: Routes = [
     BookinstancedetailComponent,
     AuthordeleteComponent,
     AuthorupdateComponent,
-    BookdeleteComponent
+    BookdeleteComponent,
+    GenredeleteComponent
   ],
   imports: [
     BrowserModule,

@@ -90,14 +90,14 @@ exports.genre_create_post = [
 
                      if (found_genre) {
                          // Genre exists, redirect to its detail page.
-                         res.redirect(found_genre.url);
+                         res.json(found_genre.url);
                      }
                      else {
 
                          genre.save(function (err) {
                            if (err) { return next(err); }
                            // Genre saved. Redirect to genre detail page.
-                           res.redirect(genre.url);
+                           res.json(genre.url);
                          });
 
                      }
@@ -120,7 +120,7 @@ exports.genre_delete_get = function(req, res, next) {
     }, function(err, results) {
         if (err) { return next(err); }
         if (results.genre==null) { // No results.
-            res.redirect('/catalog/genres');
+            res.json('/catalog/genres');
         }
         // Successful, so render.
         // res.render('genre_delete', { title: 'Delete Genre', genre: results.genre, genre_books: results.genre_books } );
@@ -153,7 +153,7 @@ exports.genre_delete_post = function(req, res, next) {
             Genre.findByIdAndRemove(req.body.id, function deleteGenre(err) {
                 if (err) { return next(err); }
                 // Success - go to genres list.
-                res.redirect('/catalog/genres');
+                res.json('/catalog/genres');
             });
 
         }
